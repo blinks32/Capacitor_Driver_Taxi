@@ -1,0 +1,19 @@
+{
+	"appId": "io.ionic.driver",
+	"appName": "myDriver",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		  "Keyboard": {
+			"resize": "none"
+		},
+		  "android": {
+            "allowMixedContent": true
+          },
+		"GoogleAuth": {
+		  "scopes": ["profile", "email"],
+		  "serverClientId": "1033966813085-4477o29hblf4oo90hpdml1omd0ahs429.apps.googleusercontent.com",
+		  "forceCodeForRefreshToken": true
+		}
+	  }
+}
