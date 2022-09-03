@@ -1,0 +1,161 @@
+
+<!-- <ion-header class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+ 
+    <ion-title> Complete Your Profile </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <ion-list class="ion-padding">
+   
+    <ion-item-group>
+      <form [formGroup]="form" >
+
+        <div>
+          <ion-list-header>
+           
+            <ion-label color="primary" class="ion-text-center">
+              <h1>Personal Information</h1>
+              </ion-label>
+             </ion-list-header>
+          <ion-item class="ion-margin">
+
+
+            <ion-input 
+              formControlName="fullname" 
+              placeholder="First Name" 
+              type="text"
+              minlength="1"
+              maxlength="200">
+            </ion-input>
+          </ion-item>
+
+          <ion-item class="ion-margin">
+
+            <ion-input 
+              formControlName="lastname" 
+              placeholder="Last Name" 
+              type="text"
+              minlength="1"
+              maxlength="200">
+            </ion-input>
+          </ion-item>
+
+          <ion-item class="ion-margin">
+            <ion-input 
+            formControlName="email" 
+            placeholder="Your Email" 
+            type="text"
+            minlength="1"
+            maxlength="200">
+          </ion-input>
+          </ion-item>
+
+        </div>
+
+
+        <div >
+          <ion-list-header class="ion-padding-top" >
+           
+            <ion-label color="primary" class="ion-text-center">
+             
+              <h1>Car Information</h1>
+              </ion-label>
+             </ion-list-header>
+          <ion-item class="ion-margin">
+
+
+            <ion-input 
+              formControlName="car" 
+              placeholder="Car Name" 
+              type="text"
+              minlength="1"
+              maxlength="200">
+            </ion-input>
+          </ion-item>
+
+          <ion-item class="ion-margin">
+            <ion-select placeholder="{{selected}}" [value]="selected" (ionChange)="chooseCarType($event)">
+            <ion-select-option *ngFor="let card of cartypes" [value]="card">{{card.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+          <ion-item class="ion-margin">
+            <ion-input 
+            formControlName="plate" 
+            placeholder="Car Plate Number" 
+            type="text"
+            minlength="1"
+            maxlength="200">
+          </ion-input>
+          </ion-item>
+
+        </div>
+
+       
+
+
+
+      </form>
+
+
+      <ion-list lines="none">
+        <ion-list-header >
+         
+          <ion-label color="primary" class="ion-text-center">
+            <h1>Documents</h1>
+            </ion-label>
+           </ion-list-header>
+
+
+           <ion-item >
+
+            <div slot="start" class="preview">
+
+              <ion-avatar (click)="changeImage()">
+                <img *ngIf="profileImage; else placeholder_avatar;" [src]="profileImage" />
+          
+                <ng-template #placeholder_avatar>
+                  <div class="fallback">
+                    <p>Profile Picture</p>
+                  </div>
+                </ng-template>
+              </ion-avatar>
+              
+            </div>
+
+            <div slot="end" class="preview">
+
+              <ion-avatar (click)="changeLicense()">
+                <img *ngIf="licenseImage; else placeholder_avatar;" [src]="licenseImage" />
+          
+                <ng-template #placeholder_avatar>
+                  <div class="fallback">
+                    <p>License</p>
+                  </div>
+                </ng-template>
+              </ion-avatar>
+              
+            </div>
+           </ion-item>
+          </ion-list>
+
+
+      <ion-button shape="round" size="large" type="submit" [disabled]="!form.valid" color="primary" (click)="signIn()" expand="block">
+        <ion-label *ngIf="!approve2">Continue</ion-label>
+        <ion-icon *ngIf="!approve2" color='light' slot="end" name="arrow-forward"></ion-icon>
+        <ion-progress-bar *ngIf="approve2" color='light' type="indeterminate"></ion-progress-bar>
+      </ion-button>
+
+    </ion-item-group>
+
+
+
+
+      </ion-list>
+
+
+</ion-content>

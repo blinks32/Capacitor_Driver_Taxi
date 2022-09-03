@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Back </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+  <ion-content class="ion-no-border">
+  
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label align="center"><h1>Enter Verification Code</h1></ion-label>
+      </ion-list-header>
+  
+      <ion-item class="ion-margin" lines="none">
+        <ion-label >
+         
+          <div class="ion-padding-top ion-padding-bottom" align="center">
+            <ng-otp-input [ngStyle]="{'width':'70%', 'height':'70%', 'font-weight':'800'}"
+              (onInputChange)="onOtpChange($event)"
+              [config]="config">
+            </ng-otp-input>
+          </div>
+        </ion-label>
+      </ion-item>
+  
+      <ion-item lines="none" class="ion-margin ion-padding-top">
+        <ion-button shape='round' size="large" expand="block" color="primary" slot="start" (click)="resend()">
+          RESEND OTP
+        </ion-button>
+        <ion-button  shape='round' size="large" expand="block" slot="end" [disabled]="!otp" color="primary" (click)="verifyOtp()">
+           Continue
+        </ion-button>
+    
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>

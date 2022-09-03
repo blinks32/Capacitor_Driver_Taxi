@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Payment </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="ion-text-center ion-padding">
+
+  <ion-list>
+  <ion-list-header class="ion-text-center">
+    <ion-label color="primary"><h1>Add New Card</h1></ion-label>
+  </ion-list-header>
+
+
+  <ion-card>
+    <ion-card-content>
+      <form action="/" method="post" id="payment-form">
+        <div class="form-row ion-padding-bottom">
+          <div id="card-element"> <!-- a Stripe Element will be inserted here. --> </div>
+          <!-- Used to display Element errors -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+
+          <ion-button expand="block" size='large' type="submit" color="primary">
+            <ion-icon *ngIf="!approve" color='light' slot="icon-only" name="checkmark-sharp"></ion-icon>
+            <ion-progress-bar *ngIf="approve"color='light' type="indeterminate"></ion-progress-bar>
+            <ion-label *ngIf="!approve">Proceed</ion-label> 
+             
+          </ion-button>
+        
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+  
+      <ion-list  lines="none" class="ion-padding-bottom">
+        <ion-list-header class="ion-text-center">
+          <ion-label color="primary">Payment Methods</ion-label>
+        </ion-list-header>
+        <ion-radio-group *ngIf="cards"[value]="selectedCard" >
+          
+              <ion-item *ngFor="let card of cards" (click)="chooseCard(card)">
+              <ion-label>
+                <h1 color="primary">{{card.name}}</h1>
+                <p>{{card.type}}</p>
+              </ion-label>
+              
+             
+              <ion-radio slot="start" [value]="card.name" ></ion-radio>
+              <ion-icon *ngIf="card.type == cash" color='success' slot="end" name="cash-sharp"></ion-icon>
+              <ion-icon *ngIf="card.type != cash" color='primary' slot="end" name="card-sharp"></ion-icon>
+            </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+
+      <ion-list *ngIf="!cards" lines="none" class="ion-padding-bottom">
+        <ion-radio-group>
+       <ion-item *ngFor="let item of skeletOns">
+        <ion-label><ion-skeleton-text [animated]="true" ></ion-skeleton-text></ion-label>
+          
+       <ion-skeleton-text  [animated]="true" style="width: 30px;" ></ion-skeleton-text>
+          
+          <ion-skeleton-text slot="end" [animated]="true" style="width: 30px;"></ion-skeleton-text>
+         
+       </ion-item>
+    </ion-radio-group>
+      </ion-list>
+ 
+      <ion-list-header>
+        <ion-label color="primary" class="ion-text-center test">
+          <h1>Test Card</h1>
+          <p>4242424242424242 2/25 544 1324</p>
+        </ion-label>
+    </ion-list-header>
+
+</ion-content>
+
