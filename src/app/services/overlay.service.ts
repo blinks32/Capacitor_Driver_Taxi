@@ -14,7 +14,8 @@ export class OverlayService {
     if(!this.isLoading) this.isLoading = true;
     return this.loadingCtrl.create({
       message: msg,
-      spinner: 'lines-sharp'
+      spinner: 'lines-sharp',
+      cssClass: 'default-alert'
     }).then(res => {
       res.present().then(() => {
         if(!this.isLoading) {
@@ -41,7 +42,8 @@ export class OverlayService {
     const alert = await this.toast.create({
       message: message,
       position: 'top',
-      duration: 500
+      duration: 500,
+      cssClass: 'default-alert'
       
     });
     await alert.present();
@@ -51,6 +53,7 @@ export class OverlayService {
     const alert = await this.alertController.create({
       header,
       message,
+      cssClass: 'default-alert',
       buttons: ['OK'],
     });
     await alert.present();

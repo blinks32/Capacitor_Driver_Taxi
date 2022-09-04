@@ -42,8 +42,8 @@ export class MapService {
        lng: coords.coords.longitude
      }
 
-     this.newMap.setMapType(MapType.Normal);
      this.newMap.enableTrafficLayer(true);
+     
      await this.newMap.setCamera({
        animate: true,
        animationDuration: 500,

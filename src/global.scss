@@ -40,6 +40,15 @@ ion-header.md {
         --ion-background-color: #1e1e1e;
     }
     
+    .default-alert{
+        --background: #1e1e1e;  
+        --border-radius:5px!important;
+       }
+    
+      
+       .sc-ion-alert-md-h {
+        --background: #1e1e1e;
+       }
     }
 
 #inbox-list{
