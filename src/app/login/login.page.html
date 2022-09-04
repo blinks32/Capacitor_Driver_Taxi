@@ -44,7 +44,7 @@
             
             <ion-item >
                  <!-- <ion-label color="primary"><h1>{{CountryCode}}</h1></ion-label> -->
-                <ion-select slot="start" placeholder="{{CountryCode}}" interface="action-sheet" (ionChange)="countryCodeChange($event)">
+                <ion-select slot="start" placeholder="{{CountryCode}}" (ionChange)="countryCodeChange($event)">
                   <ion-select-option  *ngFor="let country of CountryJson" [value]='country.dialCode'>
                       {{country.dialCode}} {{country.name}}
                   </ion-select-option>
