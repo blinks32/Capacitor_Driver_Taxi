@@ -101,8 +101,8 @@ export class DetailsPage implements OnInit {
       await Geolocation.checkPermissions();
       const coordinates = await Geolocation.getCurrentPosition();
         this.approve2 = true
-        if (this.profileImage && this.licenseImage && this.currentcar && this.form.value.fullname && this.form.value.lastname && this.form.value.email && this.form.value.car && this.form.value.plate && this.imageURl && this.licenseURl){
-        await this.avatar.CreateNewDriver(coordinates, this.form.value.fullname + '' + this.form.value.lastname, this.form.value.email, this.authy.currentUser.phoneNumber, this.form.value.car, this.currentcar, this.form.value.plate, this.imageURl, this.licenseURl)
+        if (this.currentcar && this.form.value.fullname && this.form.value.lastname && this.form.value.email && this.form.value.car && this.form.value.plate){
+        await this.avatar.CreateNewDriver(coordinates, this.form.value.fullname + '' + this.form.value.lastname, this.form.value.email, this.authy.currentUser.phoneNumber, this.form.value.car, this.currentcar, this.form.value.plate, )
         await this.avatar.createCard('Cash', 0, 'cash', 'None')
         this.approve2 = false;
         this.router.navigateByUrl('tabs');
